@@ -4,7 +4,7 @@ seo_title: 关于
 bottom_meta: false
 sidebar: []
 valine:
-  placeholder: 有什么想对我说的呢？
+  placeholder: 有什么想对我说的呢？ji能记
 ---
 
 
@@ -15,4 +15,4 @@ valine:
 
 
 
-关于我并没有什么可说的。
+计算机科学与技术专业，大三。
