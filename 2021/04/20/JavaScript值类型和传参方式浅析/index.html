@@ -22,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>关于 - Luna&#39;s Blog</title>
+  <title>JavaScript值类型和传参方式浅析 - Luna&#39;s Blog</title>
+  
+    <meta name="keywords" content="JavaScript">
   
 
   
@@ -109,6 +111,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
         <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
       </ul>
     </div>
@@ -349,7 +353,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper page dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -380,8 +384,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-<div class='l_main no_sidebar'>
-  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
 
 
@@ -390,14 +394,88 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
     
+      <h1 class="title">
+        JavaScript值类型和传参方式浅析
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg">
+    <p>Luna</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Apr 20, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="JavaScript值类型和传参方式浅析" data-path="/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
   </div>
 
 
   
   
-  <p>计算机科学与技术专业，大三。</p>
+  <h3 id="1-值类型"><a href="#1-值类型" class="headerlink" title="1. 值类型"></a><strong>1. 值类型</strong></h3><p>&emsp;&emsp;ECMA变量有两种不同的类型：原始值和引用值。原始值可以理解成Java里的基本数据类型，其值存在栈中。有6种原始类型：Null, Undefined, Boolean, Number, String, Symobl。其中Null和Undefined这两种类型各只有一个值，分别是<code>null</code>和<code>undefined</code>。</p>
+<p>&emsp;&emsp;当使用<code>var</code>或者<code>let</code>声明了变量但没有初始化时，就相当于给变量赋予了<code>undefined</code>值。对于未初始化的变量和未声明的变量使用<code>typeof</code>，都会返回<code>undefined</code>。那么为什么未声明的变量也会返回<code>undefined</code>呢？在《JavaScript高级程序设计》中解释的是：</p>
+<blockquote>
+<p>虽然严格上来讲这两个变量存在根本性差异，但它们都无法执行实际操作。</p>
+</blockquote>
+<p>&emsp;&emsp;因此这本书建议我们在声明变量的同时进行初始化。这样当<code>typeof</code>返回<code>undefined</code>时，我们就知道是给定的变量未声明，而不是声明了但未初始化。</p>
+<p>&emsp;&emsp;引用值就是对象，它把数据内容存放在堆中，而把堆的地址存放在栈中。可以理解为存在变量处的是一个指针，指向存储对象的内存处。</p>
+<p>&emsp;&emsp;值得注意的是：</p>
+<p>&emsp;&emsp;1. <code>null</code>值表示一个空对象指针，用<code>typeof</code>判断<code>null</code>会返回<code>object</code>，但是<code>null</code>并不是对象，而是基本数据类型的一种。<code>undefined</code>值是由<code>null</code>值派生而来的。因此用等于操作符<code>==</code>比较它们会返回<code>true</code>，但它们的用途是完全不一样的。在定义将来要保存对象值的变量时，建议用<code>null</code>来初始化。</p>
+<p>&emsp;&emsp;2. Boolean、Number、String其实是三种特殊的引用类型，叫做原始值包装类型。这些类型具有引用类型的特点和原始类型对应的特殊行为。对于这三种原始值，每当用到某个原始值的方法或属性时，后台都会创建一个相应原始包装类型对象。</p>
+<h3 id="2-传参方式"><a href="#2-传参方式" class="headerlink" title="2. 传参方式"></a><strong>2. 传参方式</strong></h3><p>&emsp;&emsp;我们都知道JS对值的访问方式有两种，保存原始值的变量是按值访问的，而保存引用值的对象是按引用访问的。但是JS的传参方式其实只有一种，就是按值传递。当我们传递原始值时，我们将原始值复制一份到另一个内存空间中。当我们传递引用值时，实际上我们传递的也是引用值的副本，即我们将这个地址复制了一份放到了另一个内存空间中。这样通过这个地址，我可以访问和修改该引用值的属性，但如果我new一个新的对象，我原来这个对象并不会被改变。</p>
 
   
+  
+    
+    <div class='footer'>
+      
+      
+      
+      
+    </div>
   
   
     
@@ -406,6 +484,76 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='article-meta' id="bottom">
     <div class='new-meta-box'>
       
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-16T18:36:20+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 16, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JavaScript</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/&title=JavaScript值类型和传参方式浅析 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/&title=JavaScript值类型和传参方式浅析 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/&title=JavaScript值类型和传参方式浅析 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
     </div>
   </div>
 
@@ -413,6 +561,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
 
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2021/04/27/Jetbrains%E5%90%84%E4%BA%A7%E5%93%81%E5%9B%BD%E5%86%85%E4%B8%8B%E8%BD%BD%E5%A4%AA%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Jetbrains各产品国内下载太慢的问题</p>
+          <p class='content'>&emsp;&emsp;对于Jetbrains各产品国内下载太慢的问题，原因可能是被墙了导致国内的下载速度比较慢。解决方法是使用国内的CDN镜像地址。
+&emsp;&emsp;在Jetbrain...</p>
+        </a>
+      
+      
+        <a class='next' href='/2021/03/05/%E4%BD%BF%E7%94%A8github+hexo+Volantis%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/'>
+          <p class='title'>使用github+hexo+Volantis搭建博客时踩过的坑<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>&emsp;&emsp;第一个帖子记录一下我搭博客遇到的奇葩问题，均已解决。都是比较小白的问题。
+1. 安装hexo报错&emsp;&emsp;一开始安装node.js时就踩坑了，当时参考的教程...</p>
+        </a>
+      
+    </div>
   
 </article>
 
@@ -436,6 +601,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div>
 <aside class='l_side'>
   
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%80%BC%E7%B1%BB%E5%9E%8B"><span class="toc-text">1. 值类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F"><span class="toc-text">2. 传参方式</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
 
 </aside>
 
@@ -447,10 +635,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="JavaScript值类型和传参方式浅析";
   pdata.commentPath="";
-  pdata.commentPlaceholder="有什么想对我说的呢？ji能记";
+  pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
