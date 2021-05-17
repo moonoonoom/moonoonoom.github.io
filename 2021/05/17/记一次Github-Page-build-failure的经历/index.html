@@ -22,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>所有分类 - Luna&#39;s Blog</title>
+  <title>记一次Github Page build failure的经历 - Luna&#39;s Blog</title>
+  
+    <meta name="keywords" content="碎碎念">
   
 
   
@@ -351,7 +353,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper category dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -382,59 +384,222 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      <div class='post-wrapper'>
-        <article id="cat" class="post article white-box reveal shadow">
-          <h2>所有分类</h2>
-          <div class="all-cats">
-            
-              
-                <a class="" href="/categories/%E7%BC%96%E7%A8%8B/">
-                  <span><i class='fas fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;编程</span>
-                  <span class="title">
-                    (6)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">
-                  <span><i class='fas fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;前端</span>
-                  <span class="title">
-                    (4)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">
-                  <span><i class='fas fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;JavaScript</span>
-                  <span class="title">
-                    (2)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/">
-                  <span><i class='fas fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;Vue</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-                <a class=" child" href="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                  <span><i class='fas fa-folder-open fa-fw' aria-hidden="true"></i>&nbsp;&nbsp;计算机网络</span>
-                  <span class="title">
-                    (1)
-                  </span>
-                </a>
-              
-            
-          </div>
-          <br>
+    
+    
+      <h1 class="title">
+        记一次Github Page build failure的经历
+      </h1>
+      <div class='new-meta-box'>
+        
           
-        </article>
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg">
+    <p>Luna</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：May 17, 2021</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="记一次Github Page build failure的经历" data-path="/2021/05/17/%E8%AE%B0%E4%B8%80%E6%AC%A1Github-Page-build-failure%E7%9A%84%E7%BB%8F%E5%8E%86/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
       </div>
     
+  </div>
+
+
   
+  
+  <p>&emsp;&emsp;昨天想把最近写的博文更新一下。本地运行是成功的，结果<code>hexo d</code>之后虽然<code>deploy done</code>但是Github一直给我发Page build failure的邮件。我第一反应就是我本地的代码哪里出问题了，但是我只是增加了几个markdown文件，并没有改动其他的地方啊？于是我去网上查了一下，我发现如果github给你发了这个Page build failure的邮件，他一般会在</p>
+<blockquote>
+<p>The page build failed for the <code>master</code> branch with the following error:</p>
+</blockquote>
+<p> &emsp;&emsp;这句话下面告诉你报错的位置。但是发给我的邮件，这下面只是说了一句</p>
+<blockquote>
+<p>Unable to build page. Please try again later.</p>
+</blockquote>
+<p>&emsp;&emsp;然后就跟我说有问题可以去看Jekyll文档 ，还有问题的话可以给github发信息问一下。等等，我用的是Jekyll吗，我用的是hexo啊，为什么让我去看Jekyll文档？</p>
+<p>&emsp;&emsp; 网上分享的一般都是用Jekyll，极少数的用hexo出现这个问题的，说的是自己的markdown出现语法问题导致编译失败。那为什么我本地能运行成功？然后我看到其中一个网友说，他给github发信息了，github说是因为有一个组件在云端更新了，而他的代码里有部分在组件更新后运行会出bug，而他本地没有更新所以运行没问题。接下来这个网友po了详细的解决过程，非常繁琐。我当时就想，天哪，不会这么倒霉吧，想着我就给github也发了条信息问他怎么回事。结果他回我说</p>
+<blockquote>
+<p>Hi Luna,</p>
+<p>Thanks for writing in, and we apologize for the trouble this is causing.</p>
+<p>This sounds like it may be related to an ongoing status event:</p>
+<p><a target="_blank" rel="noopener" href="https://www.githubstatus.com/">https://www.githubstatus.com</a></p>
+<p>Our team is actively working on fixing it. I’d recommend keeping an eye on our status site so you can check when this is resolved. You can also subscribe to that page in order to be notified when the event is over.</p>
+<p>Please let us know if you’re still having trouble after our status changes back to green. Note that it may take some additional time after that for things to get caught up.</p>
+<p>Cheers,<br>J.J.</p>
+</blockquote>
+<p>&emsp;&emsp;我说搞咩啊，原来是GitHub那边出问题了，他们说正在修复，我点进这个网页一看，Github Pages对应的那个点还真是黄的。我睡了一觉起来他就修复好了。现在博文可以上传了……</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-17T17:45:48+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：May 17, 2021</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>碎碎念</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/05/17/%E8%AE%B0%E4%B8%80%E6%AC%A1Github-Page-build-failure%E7%9A%84%E7%BB%8F%E5%8E%86/&title=记一次Github Page build failure的经历 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/05/17/%E8%AE%B0%E4%B8%80%E6%AC%A1Github-Page-build-failure%E7%9A%84%E7%BB%8F%E5%8E%86/&title=记一次Github Page build failure的经历 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/05/17/%E8%AE%B0%E4%B8%80%E6%AC%A1Github-Page-build-failure%E7%9A%84%E7%BB%8F%E5%8E%86/&title=记一次Github Page build failure的经历 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/05/16/%E6%B5%85%E6%9E%90Vue%E7%9A%84Prop%E7%B1%BB%E5%9E%8B/'>
+          <p class='title'>浅析Vue的Prop类型<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>&emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -451,14 +616,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="记一次Github Page build failure的经历";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
