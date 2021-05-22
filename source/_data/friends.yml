@@ -1,0 +1,7 @@
+- group: # 分组标题
+  description:  # 分组描述
+  items:
+     - title: Marlowe # 名称
+       avatar: https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3.1/images/MarloweAvatar.jpg #http://marlowe.oss-cn-beijing.aliyuncs.com/img/陈浩南.jpg
+       url: https://xmmarlowe.github.io/
+       description: 实验室的学弟
