@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,7 +22,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>Category: Vue - Luna&#39;s Blog</title>
+  <title>vue加载时的执行顺序 - Luna&#39;s Blog</title>
+  
+    <meta name="keywords" content="Vue">
   
 
   
@@ -353,7 +353,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -384,127 +384,239 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
+      <h1 class="title">
         vue加载时的执行顺序
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        &emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。
-1. 项目内文件的执...
-      
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg">
+    <p>Luna</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-06-16</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 16, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="vue加载时的执行顺序" data-path="/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，<code>npm run serve</code>就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。</p>
+<h3 id="1-项目内文件的执行顺序"><a href="#1-项目内文件的执行顺序" class="headerlink" title="1. 项目内文件的执行顺序"></a>1. 项目内文件的执行顺序</h3><p>&emsp;&emsp;当我们运行<code>npm run serve</code>或者<code>npm run dev</code>时，项目内的文件运行顺序如下：</p>
+<blockquote>
+<ol>
+<li><p>执行index.html文件</p>
+</li>
+<li><p>执行main.js文件</p>
+</li>
+<li><p>main.js挂载了app.vue文件，用app.vue的templete替换index.html中的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;app&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>main.js中注入了路由文件，将对应的组件渲染到router-view中</p>
+</li>
+</ol>
+</blockquote>
+<p>&emsp;&emsp;这是我在<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/86f6e63f6785">csdn的一篇博客</a>上看的。他后面还有两步“router-view中加载Layout文件”和“Layout 加载Navbar, Sidebar, AppMain”。但我的项目中没有layout文件啊。不知道他啥意思。不过基本的文件执行顺序还是了解了。</p>
+<h3 id="2-Vue生命周期的执行顺序"><a href="#2-Vue生命周期的执行顺序" class="headerlink" title="2. Vue生命周期的执行顺序"></a>2. Vue生命周期的执行顺序</h3><p>&emsp;&emsp;<img src="https://user-gold-cdn.xitu.io/2020/2/23/170724235e6707f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" class="lazyload" data-srcset="https://user-gold-cdn.xitu.io/2020/2/23/170724235e6707f6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Vue生命周期状态转换图"></p>
+<p>&emsp;&emsp;转化成文字即执行顺序如下:</p>
+<p>页面首次加载的执行顺序：</p>
+<blockquote>
+<p>beforeCreate //在实例初始化之后、创建之前执行<br>created //实例创建后执行<br>beforeMounted //在挂载开始之前调用<br>filters //挂载前加载过滤器<br>computed //计算属性<br>directives-bind //只调用一次，在指令第一次绑定到元素时调用<br>directives-inserted //被绑定元素插入父节点时调用<br>activated //keek-alive组件被激活时调用，则在keep-alive包裹的嵌套的子组件中触发<br>mounted //挂载完成后调用</p>
+<p>大括号大括号//mustache表达式渲染页面</p>
+</blockquote>
+<p>修改data时的执行顺序</p>
+<blockquote>
+<p>watch //首先先监听到了改变事件<br>filters //过滤器没有添加在该input元素上，但是也被调用了<br>beforeUpdate //数据更新时调用，发生在虚拟dom打补丁前<br>directived-update //指令所在的组件的vNode更新时调用，但可能发生在其子vNode更新前<br>directives-componentUpdated//指令所在的组件的vNode及其子组件的vNode全部更新后调用<br>updated //组件dom已经更新</p>
+</blockquote>
+<p>组件销毁时的执行顺序</p>
+<blockquote>
+<p>beforeDestroy //实例销毁之前调用<br>directives-unbind //指令与元素解绑时调用，只调用一次<br>deactivated //keep-alive组件停用时调用<br>destroyed //实例销毁之后调用</p>
+</blockquote>
+<h3 id="3-Vue组件内方法的执行顺序"><a href="#3-Vue组件内方法的执行顺序" class="headerlink" title="3. Vue组件内方法的执行顺序"></a>3. Vue组件内方法的执行顺序</h3><p>&emsp;&emsp;那么vue组件内的方法的执行顺序是怎样的呢？由Vue的<a target="_blank" rel="noopener" href="https://github.com/vuejs/vue/blob/dev/src/core/instance/state.js#L45-L53">源码</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initState</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  vm._watchers = []</span><br><span class="line">  <span class="keyword">const</span> opts = vm.$options</span><br><span class="line">  <span class="keyword">if</span> (opts.props) initProps(vm, opts.props)</span><br><span class="line">  <span class="keyword">if</span> (opts.methods) initMethods(vm, opts.methods)</span><br><span class="line">  <span class="keyword">if</span> (opts.data) &#123;</span><br><span class="line">    initData(vm)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    observe(vm._data = &#123;&#125;, <span class="literal">true</span> <span class="comment">/* asRootData */</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (opts.computed) initComputed(vm, opts.computed)</span><br><span class="line">  <span class="keyword">if</span> (opts.watch &amp;&amp; opts.watch !== nativeWatch) &#123;</span><br><span class="line">    initWatch(vm, opts.watch)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;可知，方法的执行顺序为prop、methods、data、computed、watch。</p>
+<p>&emsp;&emsp;为啥是先执行methods再执行data？如果methods中用到data的数据怎么办？</p>
+<p>&emsp;&emsp;可惜，再往下的源码我看不懂，等我变强再说吧。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/'>
-            Read More
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-16T19:33:47+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 16, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/05/16/%E6%B5%85%E6%9E%90Vue%E7%9A%84Prop%E7%B1%BB%E5%9E%8B/">
-        浅析Vue的Prop类型
-      </a>
-    </h2>
-  
-  <div class='md'>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vue/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Vue</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        &emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。
-&emsp;&emsp;Prop的定义方式可以是
-1props: [&#x27;title&#x27;...
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
       
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2021-05-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2021/05/16/%E6%B5%85%E6%9E%90Vue%E7%9A%84Prop%E7%B1%BB%E5%9E%8B/'>
-            Read More
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/06/09/%E5%AF%B9%E4%BA%8Egit%20Connection%20was%20reset%20%E5%92%8C%20unable%20to%20access%20%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/'>
+          <p class='title'>对于git Connection was reset 和 unable to access 问题的解决<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>&emsp;&emsp; 使用git拉取代码的时候经常报错，错误信息如下：
+1OpenSSL SSL_connect: Connection was reset in connection to...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -512,291 +624,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Luna</h2>
-        
-        
-          <p>正入万山圈子里，一山放过一山拦</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/569232693:@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/moonoonoom"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
-            id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFJavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
-            ><div class='name'>Vue</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAF"
-            ><div class='name'>后端</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJava"
-            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJavaSpringMVC"
-            ><div class='name'>SpringMVC</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFE695B0E68DAEE5BA93"
-            ><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="categoriesE7BC96E7A88BE8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>计算机网络</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%A1%B9%E7%9B%AE%E5%86%85%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">1. 项目内文件的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">2. Vue生命周期的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Vue%E7%BB%84%E4%BB%B6%E5%86%85%E6%96%B9%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-text">3. Vue组件内方法的执行顺序</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/git/" style="font-size: 24px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>10 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/03/05'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Jun 16 2021 19:33:53 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-06-16 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-06-16 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -805,8 +654,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="vue加载时的执行顺序";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
