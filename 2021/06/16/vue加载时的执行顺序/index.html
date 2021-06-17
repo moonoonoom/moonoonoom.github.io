@@ -28,6 +28,8 @@
   
 
   
+    <meta name="description" content="&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不...">
+  
 
   <!-- feed -->
   
@@ -456,6 +458,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <p>&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，<code>npm run serve</code>就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。</p>
+<span id="more"></span>
+
 <h3 id="1-项目内文件的执行顺序"><a href="#1-项目内文件的执行顺序" class="headerlink" title="1. 项目内文件的执行顺序"></a>1. 项目内文件的执行顺序</h3><p>&emsp;&emsp;当我们运行<code>npm run serve</code>或者<code>npm run dev</code>时，项目内的文件运行顺序如下：</p>
 <blockquote>
 <ol>
@@ -510,10 +514,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-16T19:33:47+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-17T15:34:23+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 16, 2021</p>
+    <p>更新于：Jun 17, 2021</p>
   </a>
 </div>
 
@@ -535,7 +539,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary=&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。"
           
           >
           
@@ -547,7 +551,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary=&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。"
           
           >
           
@@ -559,7 +563,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/&title=vue加载时的执行顺序 - Luna's Blog&summary=&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。"
           
           >
           
@@ -597,8 +601,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='next' href='/2021/06/09/%E5%AF%B9%E4%BA%8Egit%20Connection%20was%20reset%20%E5%92%8C%20unable%20to%20access%20%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/'>
           <p class='title'>对于git Connection was reset 和 unable to access 问题的解决<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>&emsp;&emsp; 使用git拉取代码的时候经常报错，错误信息如下：
-1OpenSSL SSL_connect: Connection was reset in connection to...</p>
+          <p class='content'>&emsp;&emsp; 使用git拉取代码的时候经常报错。
+
+
+&emsp;&emsp;错误信息如下：
+1OpenSSL SSL_connect: Connection was reset i...</p>
         </a>
       
     </div>

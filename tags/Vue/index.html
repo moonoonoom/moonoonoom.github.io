@@ -417,10 +417,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      
-        &emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。
-1. 项目内文件的执...
-      
+      <p>&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，<code>npm run serve</code>就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。</p>
     
   </div>
   
@@ -464,11 +461,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      
-        &emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。
-&emsp;&emsp;Prop的定义方式可以是
-1props: [&#x27;title&#x27;...
-      
+      <p>&emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。</p>
     
   </div>
   
@@ -599,22 +592,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
             id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(11)</div></a></li>
+            ><div class='name'>编程</div><div class='badge'>(13)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/ide/" href="/categories/%E7%BC%96%E7%A8%8B/ide/"
+            id="categoriesE7BC96E7A88Bide"
+            ><div class='name'>ide</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
             id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>前端</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"
+            id="categoriesE7BC96E7A88BE5898DE7ABAFCSS"
+            ><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/"
             id="categoriesE7BC96E7A88BE5898DE7ABAFJavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>JavaScript</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
             id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
             ><div class='name'>Vue</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/"
+            id="categoriesE7BC96E7A88BE5898DE7ABAFhtml"
+            ><div class='name'>html</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"
@@ -663,7 +671,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/git/" style="font-size: 24px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
+      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/git/" style="font-size: 24px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
     </div>
   </section>
 
@@ -690,7 +698,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>11 篇</div>
+          <div>13 篇</div>
         </div>
       
 
@@ -733,7 +741,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Jun 17 2021 11:12:16 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Jun 17 2021 15:49:31 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-06-17 日</div>
           
         </div>

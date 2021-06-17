@@ -405,9 +405,55 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
         
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/">
+        html文档浅析
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <h3 id="1-文档流"><a href="#1-文档流" class="headerlink" title="1. 文档流"></a>1. 文档流</h3><p>&emsp;&emsp;文档流指的是html的元素在计算布局排版的过程中，会依照它们各自在标记中出现的先后顺序，依次从页面上方流向下方。其中非块级元素会从左到右排列，块级元素会从上到下排列。</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-06-17</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/">html</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -425,13 +471,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='md'>
     
-      
-        &emsp;&emsp;CSS的动画分为两种类型：transition和animation。其中transition又称”过渡“，需要由事件触发，并且只有一组关键帧（开始-结束）。animation不需要由时间触发不说，且可以设置多组关键帧。
-1. Transition&emsp;&emsp;transition有四个属性：
-
-transition-property
-执行过渡的属性，例子设置...
-      
+      <p>&emsp;&emsp;CSS的动画分为两种类型：transition和animation。其中transition又称”过渡“，需要由事件触发，并且只有一组关键帧（开始-结束）。animation不需要由时间触发不说，且可以设置多组关键帧。</p>
     
   </div>
   
@@ -441,7 +481,7 @@ transition-property
         <time>2021-06-17</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/">CSS</a>
         
       </div>
       
@@ -475,10 +515,7 @@ transition-property
   
   <div class='md'>
     
-      
-        &emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，npm run serve就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。
-1. 项目内文件的执...
-      
+      <p>&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，<code>npm run serve</code>就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。</p>
     
   </div>
   
@@ -522,11 +559,7 @@ transition-property
   
   <div class='md'>
     
-      
-        &emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。
-&emsp;&emsp;Prop的定义方式可以是
-1props: [&#x27;title&#x27;...
-      
+      <p>&emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。</p>
     
   </div>
   
@@ -570,14 +603,7 @@ transition-property
   
   <div class='md'>
     
-      
-        &emsp;&emsp;typeof用来判断一个变量是否为原始类型，即是否为6种原始值：Null, Undefined, Boolean, Number, String, Symobl 中的一种。其用法为
-12let a = &quot;&quot;;console.log(typeof a);//string
-
-
-
-&emsp;&emsp;使用typeof判断变量，将会返回变量对应的类型。...
-      
+      <p>&emsp;&emsp;<code>typeof</code>用来判断一个变量是否为原始类型，即是否为6种原始值：Null, Undefined, Boolean, Number, String, Symobl 中的一种。</p>
     
   </div>
   
@@ -621,10 +647,7 @@ transition-property
   
   <div class='md'>
     
-      
-        1. 值类型&emsp;&emsp;ECMA变量有两种不同的类型：原始值和引用值。原始值可以理解成Java里的基本数据类型，其值存在栈中。有6种原始类型：Null, Undefined, Boolean, Number, String, Symobl。其中Null和Undefined这两种类型各只有一个值，分别是null和undefined。
-&emsp;&emsp;当使用var或者let声...
-      
+      <h3 id="1-值类型"><a href="#1-值类型" class="headerlink" title="1. 值类型"></a><strong>1. 值类型</strong></h3><p>&emsp;&emsp;ECMA变量有两种不同的类型：原始值和引用值。原始值可以理解成Java里的基本数据类型，其值存在栈中。有6种原始类型：Null, Undefined, Boolean, Number, String, Symobl。其中Null和Undefined这两种类型各只有一个值，分别是<code>null</code>和<code>undefined</code>。</p>
     
   </div>
   
@@ -668,12 +691,7 @@ transition-property
   
   <div class='md'>
     
-      
-        &emsp;&emsp;第一个帖子记录一下我搭博客遇到的奇葩问题，均已解决。都是比较小白的问题。
-1. 安装hexo报错&emsp;&emsp;一开始安装node.js时就踩坑了，当时参考的教程直接给了个链接我就图省事点进去下了，结果这个版本不是最新的，导致我之后用git安装Hexo的时候一直报错。
-报错信息如下：
-123console.js:39	throw new ERR_CONSOLE...
-      
+      <p>&emsp;&emsp;第一个帖子记录一下我搭博客遇到的奇葩问题，均已解决。都是比较小白的问题。</p>
     
   </div>
   
@@ -804,22 +822,37 @@ transition-property
           <li><a class="flat-box"
             title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
             id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(11)</div></a></li>
+            ><div class='name'>编程</div><div class='badge'>(13)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/ide/" href="/categories/%E7%BC%96%E7%A8%8B/ide/"
+            id="categoriesE7BC96E7A88Bide"
+            ><div class='name'>ide</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
             id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(6)</div></a></li>
+            ><div class='name'>前端</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"
+            id="categoriesE7BC96E7A88BE5898DE7ABAFCSS"
+            ><div class='name'>CSS</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/"
             id="categoriesE7BC96E7A88BE5898DE7ABAFJavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(3)</div></a></li>
+            ><div class='name'>JavaScript</div><div class='badge'>(2)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
             id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
             ><div class='name'>Vue</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/"
+            id="categoriesE7BC96E7A88BE5898DE7ABAFhtml"
+            ><div class='name'>html</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"
@@ -868,7 +901,7 @@ transition-property
 
 
     <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/git/" style="font-size: 24px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
+      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/css/" style="font-size: 14px; color: #999">css</a> <a href="/tags/git/" style="font-size: 24px; color: #555">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
     </div>
   </section>
 
@@ -895,7 +928,7 @@ transition-property
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>11 篇</div>
+          <div>13 篇</div>
         </div>
       
 
@@ -938,7 +971,7 @@ transition-property
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Thu Jun 17 2021 11:12:15 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Thu Jun 17 2021 15:49:31 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2021-06-17 日</div>
           
         </div>

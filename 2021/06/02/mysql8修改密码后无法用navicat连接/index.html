@@ -28,6 +28,8 @@
   
 
   
+    <meta name="description" content="&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是...">
+  
 
   <!-- feed -->
   
@@ -456,6 +458,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <p>&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。</p>
+<span id="more"></span>
+
 <p>&emsp;&emsp;第一步：以管理员身份运行控制台，关闭mysql服务。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\WINDOWS\system32&gt;net stop mysql</span><br><span class="line">MySQL 服务正在停止.</span><br><span class="line">MySQL 服务已成功停止。</span><br></pre></td></tr></table></figure>
 
@@ -504,10 +508,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-02T16:19:47+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-17T15:33:49+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：Jun 2, 2021</p>
+    <p>更新于：Jun 17, 2021</p>
   </a>
 </div>
 
@@ -529,7 +533,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary=&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。"
           
           >
           
@@ -541,7 +545,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary=&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。"
           
           >
           
@@ -553,7 +557,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/&title=mysql8修改密码后无法用navicat连接 - Luna's Blog&summary=&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。"
           
           >
           
@@ -585,8 +589,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2021/06/09/%E5%AF%B9%E4%BA%8Egit%20Connection%20was%20reset%20%E5%92%8C%20unable%20to%20access%20%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/'>
           <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>对于git Connection was reset 和 unable to access 问题的解决</p>
-          <p class='content'>&emsp;&emsp; 使用git拉取代码的时候经常报错，错误信息如下：
-1OpenSSL SSL_connect: Connection was reset in connection to...</p>
+          <p class='content'>&emsp;&emsp; 使用git拉取代码的时候经常报错。
+
+
+&emsp;&emsp;错误信息如下：
+1OpenSSL SSL_connect: Connection was reset i...</p>
         </a>
       
       
