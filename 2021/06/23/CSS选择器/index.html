@@ -513,7 +513,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.specialtext</span><span class="selector-class">.featured</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>&emsp;&emsp;注意两个类名之间应该是没有空格的，不然就变成祖先与后代关系的上下文选择器了。</p>
-<p>&emsp;&emsp;书里还说前端工程师在开发的过程中，要避免类泛滥的情况。就是不要像使用id一样，给每个类指定不同的类名，然后再为每个类编写规则。如果你有这种随意使用类的习惯，说明你还不了解继承（继承还没写到，之后写）和上下文选择器的作用，那么你可能会给每个标签都重复写同样的样式（比如为页面内很多标签分别指定相同的字体）。实际上应该用继承和上下文选择器让不同的标签共享样式，从而降低需要编写和维护的CSS量。</p>
+<p>&emsp;&emsp;书里还说前端工程师在开发的过程中，要避免类泛滥的情况。就是不要像使用id一样，给每个类指定不同的类名，然后再为每个类编写规则。如果你有这种随意使用类的习惯，说明你还不了解继承和上下文选择器的作用，那么你可能会给每个标签都重复写同样的样式（比如为页面内很多标签分别指定相同的字体）。实际上应该用继承和上下文选择器让不同的标签共享样式，从而降低需要编写和维护的CSS量。</p>
+<p>&emsp;&emsp;继承是啥？CSS中的祖先元素会像后代元素传递CSS的值，就像子孙继承祖先的遗产一样。一般来说颜色、字体、字号可以继承，边框、内外边距不能继承。</p>
 <h3 id="4-ID选择器"><a href="#4-ID选择器" class="headerlink" title="4. ID选择器"></a>4. ID选择器</h3><p>&emsp;&emsp;ID选择器的格式也没啥好讲的。ID的用处实在页面中唯一地标识一个特定的元素。</p>
 <h3 id="5-属性选择器"><a href="#5-属性选择器" class="headerlink" title="5. 属性选择器"></a>5. 属性选择器</h3><p>&emsp;&emsp;属性选择器分为属性名选择器和属性值选择器，可以让我们基于HTML标签的属性选择元素。</p>
 <p>&emsp;&emsp;属性名选择器的用法为</p>
@@ -546,7 +547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-23T13:55:07+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-23T14:26:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Jun 23, 2021</p>
