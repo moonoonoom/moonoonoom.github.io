@@ -1,7 +1,7 @@
 ---
 title: typeof和instanceof的区别
 date: 2021-05-15 21:46:13
-tags: JavaScript
+tags: JS
 categories:
 - 编程
 - 前端
@@ -10,7 +10,11 @@ categories:
 
 
 
-&emsp;&emsp;`typeof`用来判断一个变量是否为原始类型，即是否为6种原始值：Null, Undefined, Boolean, Number, String, Symobl 中的一种。其用法为
+&emsp;&emsp;`typeof`用来判断一个变量是否为原始类型，即是否为6种原始值：Null, Undefined, Boolean, Number, String, Symobl 中的一种。
+
+<!-- more -->
+
+其用法为
 
 ```javascript
 let a = "";

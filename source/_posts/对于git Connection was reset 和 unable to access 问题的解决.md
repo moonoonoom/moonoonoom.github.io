@@ -5,7 +5,11 @@ tags: git
 categories: 编程
 ---
 
-&emsp;&emsp; 使用git拉取代码的时候经常报错，错误信息如下：
+&emsp;&emsp; 使用git拉取代码的时候经常报错。
+
+<!-- more -->
+
+&emsp;&emsp;错误信息如下：
 
 ```bash
 OpenSSL SSL_connect: Connection was reset in connection to github.com:443

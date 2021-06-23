@@ -1,7 +1,7 @@
 ---
 title: JavaScript值类型和传参方式浅析
 date: 2021-04-20 22:46:14
-tags: JavaScript
+tags: JS
 categories:
 - 编程
 - 前端
@@ -12,7 +12,7 @@ categories:
 
 &emsp;&emsp;ECMA变量有两种不同的类型：原始值和引用值。原始值可以理解成Java里的基本数据类型，其值存在栈中。有6种原始类型：Null, Undefined, Boolean, Number, String, Symobl。其中Null和Undefined这两种类型各只有一个值，分别是`null`和`undefined`。
 
-
+<!-- more -->
 
 &emsp;&emsp;当使用`var`或者`let`声明了变量但没有初始化时，就相当于给变量赋予了`undefined`值。对于未初始化的变量和未声明的变量使用`typeof`，都会返回`undefined`。那么为什么未声明的变量也会返回`undefined`呢？在《JavaScript高级程序设计》中解释的是：
 

@@ -12,7 +12,7 @@ categories:
 
 &emsp;&emsp;Prop是Vue的组件用来进行通讯的一个attribute，被用来向子组件传递数据。HTML中的attribute名是不区分大小写的，因此使用DOM模板时，用驼峰命名法的prop名需要使用等价的短横线分割命名法来命名。但是如果使用的是字符串模板，这个限制就不存在了。
 
-
+<!-- more -->
 
 &emsp;&emsp;Prop的定义方式可以是
 

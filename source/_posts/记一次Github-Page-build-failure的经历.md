@@ -7,7 +7,11 @@ categories: 编程
 
 
 
-&emsp;&emsp;昨天想把最近写的博文更新一下。本地运行是成功的，结果`hexo d`之后虽然`deploy done`但是Github一直给我发Page build failure的邮件。我第一反应就是我本地的代码哪里出问题了，但是我只是增加了几个markdown文件，并没有改动其他的地方啊？于是我去网上查了一下，我发现如果github给你发了这个Page build failure的邮件，他一般会在
+&emsp;&emsp;昨天想把最近写的博文更新一下。本地运行是成功的，结果`hexo d`之后虽然`deploy done`但是Github一直给我发Page build failure的邮件。我第一反应就是我本地的代码哪里出问题了，但是我只是增加了几个markdown文件，并没有改动其他的地方啊？
+
+<!-- more -->
+
+&emsp;&emsp;于是我去网上查了一下，我发现如果github给你发了这个Page build failure的邮件，他一般会在
 
 > The page build failed for the `master` branch with the following error:
 
