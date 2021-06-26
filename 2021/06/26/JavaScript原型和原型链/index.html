@@ -5,10 +5,6 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -26,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Luna&#39;s Blog</title>
+  <title>JavaScript原型和原型链 - Luna&#39;s Blog</title>
+  
+    <meta name="keywords" content="JS">
   
 
+  
+    <meta name="description" content="1. 原型&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造...">
   
 
   <!-- feed -->
@@ -106,7 +106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header  shadow blur "  >
+<header id="l_header" class="l_header  shadow blur show"  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -355,7 +355,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -376,7 +376,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 </div>
 
-          <div id="scroll-down" style="display: ;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
         </div>
     
   
@@ -387,516 +387,214 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+      <h1 class="title">
         JavaScript原型和原型链
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h3 id="1-原型"><a href="#1-原型" class="headerlink" title="1. 原型"></a>1. 原型</h3><p>&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。</p>
-    
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg">
+    <p>Luna</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
-        <time>2021-06-26</time>
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Jun 26, 2021</p>
+  </a>
+</div>
+
+          
         
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="JavaScript原型和原型链" data-path="/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <h3 id="1-原型"><a href="#1-原型" class="headerlink" title="1. 原型"></a>1. 原型</h3><p>&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。</p>
+<span id="more"></span>
+
+<p>&emsp;&emsp;我的理解是这样：</p>
+<img src="../assets/prototype.jpg" class="lazyload" data-srcset="../assets/prototype.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" width = "60%" />
+
+<p>&emsp;&emsp;在自定义构造函数时，原型对象默认只会获得constructor属性，其他属性都继承自Object。脚本中没有访问实力的prototype的标准方式，但是chrome、firefox、safari都会在每个对象上暴露_proto_属性，通过这个属性可以访问对象的原型。实际上实例与构造函数原型有直接的关系，但是实例和构造函数是没有直接的关系的。</p>
+<p>&emsp;&emsp;用代码来理解：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">	constructor: function Person(),</span></span><br><span class="line"><span class="comment">	_proto_: Obkect</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.constructor === Person) <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//正常的原型链都会终止于Object的原型对象</span></span><br><span class="line"><span class="comment">//Object的原型是null</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype._proto_ === <span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype._proto_.constructor === <span class="built_in">Object</span>)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype._proto_._proto_ === <span class="built_in">Object</span>)<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(), person2 = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造函数、原型对象和实例是三个完全不同的对象</span></span><br><span class="line"><span class="built_in">console</span>.log(person1 !== Person)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person1 !== Person.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype !== Person)<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 实例通过_proto_链接到原型对象</span></span><br><span class="line"><span class="comment">* _proto_其实就是实例的隐藏特性prototype</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">console</span>.log(person1._proto_ === Person.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person1._proto_.constructor === Person)<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//同一个构造函数的两个实例共享同一个原型对象</span></span><br><span class="line"><span class="built_in">console</span>.log(person1._proto_ === person2._proto_)<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//instanceof检查实例的原型链中是否包含指定构造函数的原型</span></span><br><span class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Person)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;在通过对象访问属性时，会按照这个属性的名称开始搜索，搜索开始于对象实例本身。如果在这个实例上发现了给定的名称，则返回给定名称对应的值，如果没有找到这个属性，则会沿着指针进入原型对象，在原型对象中进行搜索。如果在原型对象中找到属性，则返回对应的值。这就是多个对象实例之间共享属性和方法的原理。</p>
+<p>&emsp;&emsp;虽然可以通过实例读取原型对象上的值，但是不能通过实例修改原型对象上的值。如果在实例上添加了一个与原型对象中同名的属性，那就会在实例上创建这个属性。这个属性会遮住原型对象上的属性。同时会<strong>遮蔽（shadow）</strong>对原型对象上同名属性的访问。把原型对象上的这个属性设置为null并不能恢复其与原型的联系，只有使用<code>delete</code>操作符才可以删除实例上的这个属性，从而让解析过程能够继续搜索原型对象。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/'>
-            Read More
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-06-26T20:18:24+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Jun 26, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JS/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>JS</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2021/06/26/JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/">
-        JavaScript构造函数模式
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/&title=JavaScript原型和原型链 - Luna's Blog&summary=1. 原型&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
     
-      <p>&emsp;&emsp;JavaScript中的构造函数的特点是：没有显示地创建对象、属性和方法直接赋值给了this、没有return。</p>
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/&title=JavaScript原型和原型链 - Luna's Blog&summary=1. 原型&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/&title=JavaScript原型和原型链 - Luna's Blog&summary=1. 原型&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2021-06-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2021/06/26/JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/'>
-            Read More
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/06/26/JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/'>
+          <p class='title'>JavaScript构造函数模式<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>&emsp;&emsp;JavaScript中的构造函数的特点是：没有显示地创建对象、属性和方法直接赋值给了this、没有return。
+
+
+&emsp;&emsp;当我们用new创建构造函数时...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/23/CSS%E9%80%89%E6%8B%A9%E5%99%A8/">
-        CSS选择器
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;CSS 选择器规定了 CSS 规则会被应用到哪些元素上。以下简单介绍几种常用的选择器。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/">CSS</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/23/CSS%E9%80%89%E6%8B%A9%E5%99%A8/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
+  </article>
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/17/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-        VSCode快捷键
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;最近学的VSCode中的快捷键。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/ide/">ide</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/17/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
 
-</div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/">
-        html文档浅析
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h3 id="1-文档流"><a href="#1-文档流" class="headerlink" title="1. 文档流"></a>1. 文档流</h3><p>&emsp;&emsp;文档流指的是html的元素在计算布局排版的过程中，会依照它们各自在标记中出现的先后顺序，依次从页面上方流向下方。其中非块级元素会从左到右排列，块级元素会从上到下排列。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/">html</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/17/CSS%E7%9A%84%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/">
-        CSS的动画效果
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;CSS的动画分为两种类型：transition和animation。其中transition又称”过渡“，需要由事件触发，并且只有一组关键帧（开始-结束）。animation不需要由时间触发不说，且可以设置多组关键帧。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/">CSS</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/17/CSS%E7%9A%84%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/">
-        vue加载时的执行顺序
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;用Vue用了快一年了，很多东西还是一知半解的。之前在公司实习的时候学得不够透彻，只知道改了项目中的文件之后，<code>npm run serve</code>就可以运行项目了。等到回到学校自己搭项目，才发现自己其实连Vue项目是从哪里开始加载，怎么加载的都不知道。虽然经常用生命周期的钩子函数，但其实对生命周期也不是很了解。今天这篇博文就来分析一下Vue加载时的执行顺序。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/">Vue</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/16/vue%E5%8A%A0%E8%BD%BD%E6%97%B6%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/09/%E5%AF%B9%E4%BA%8Egit%20Connection%20was%20reset%20%E5%92%8C%20unable%20to%20access%20%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/">
-        对于git Connection was reset 和 unable to access 问题的解决
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp; 使用git拉取代码的时候经常报错。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-09</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/09/%E5%AF%B9%E4%BA%8Egit%20Connection%20was%20reset%20%E5%92%8C%20unable%20to%20access%20%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/">
-        mysql8修改密码后无法用navicat连接
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/">后端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/05/22/%E6%B5%85%E6%9E%90SpringMVC%E4%B9%8BResponseBody/">
-        浅析SpringMVC之ResponseBody
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;最近刚刚开始做SpringBoot的项目，用的前后端分离，由于时间问题部分代码是照着网上的写的，没有理解代码的意义，导致我闹了个乌龙。我在后端写响应get请求的方法时，没有加<code>@ResponseBody</code>的注解，于是我前端发出get请求之后一直返回404。我还觉得很奇怪，明明我请求的地址是没问题的。甚至还去StackOverflow上问了一下，搞了快一个晚上。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-05-22</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/">后端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/">Java</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/">SpringMVC</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/05/22/%E6%B5%85%E6%9E%90SpringMVC%E4%B9%8BResponseBody/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 2
-        </p>
-        
-          <a class="next" rel="next" href="/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
 </div>
@@ -906,301 +604,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Luna</h2>
-        
-        
-          <p>正入万山圈子里，一山放过一山拦</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/569232693:@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/moonoonoom"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
-            id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(16)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/ide/" href="/categories/%E7%BC%96%E7%A8%8B/ide/"
-            id="categoriesE7BC96E7A88Bide"
-            ><div class='name'>ide</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(10)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFCSS"
-            ><div class='name'>CSS</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFJavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
-            ><div class='name'>Vue</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFhtml"
-            ><div class='name'>html</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAF"
-            ><div class='name'>后端</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJava"
-            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJavaSpringMVC"
-            ><div class='name'>SpringMVC</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFE695B0E68DAEE5BA93"
-            ><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="categoriesE7BC96E7A88BE8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>计算机网络</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8E%9F%E5%9E%8B"><span class="toc-text">1. 原型</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/CSS/" style="font-size: 19px; color: #777">CSS</a> <a href="/tags/JS/" style="font-size: 24px; color: #555">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 19px; color: #777">Vue</a> <a href="/tags/git/" style="font-size: 19px; color: #777">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>16 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/03/05'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Jun 26 2021 20:18:37 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-06-26 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-06-26 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
@@ -1215,21 +634,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="JavaScript原型和原型链";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="full";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
