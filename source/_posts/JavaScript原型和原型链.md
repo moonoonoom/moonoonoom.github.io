@@ -68,3 +68,33 @@ console.log(Person.prototype instanceof Object)//true
 &emsp;&emsp;在通过对象访问属性时，会按照这个属性的名称开始搜索，搜索开始于对象实例本身。如果在这个实例上发现了给定的名称，则返回给定名称对应的值，如果没有找到这个属性，则会沿着指针进入原型对象，在原型对象中进行搜索。如果在原型对象中找到属性，则返回对应的值。这就是多个对象实例之间共享属性和方法的原理。
 
 &emsp;&emsp;虽然可以通过实例读取原型对象上的值，但是不能通过实例修改原型对象上的值。如果在实例上添加了一个与原型对象中同名的属性，那就会在实例上创建这个属性。这个属性会遮住原型对象上的属性。同时会**遮蔽（shadow）**对原型对象上同名属性的访问。把原型对象上的这个属性设置为null并不能恢复其与原型的联系，只有使用`delete`操作符才可以删除实例上的这个属性，从而让解析过程能够继续搜索原型对象。
+
+&emsp;&emsp;代码示例如下：
+
+```javascript
+person1.name="Luna";
+delete person1.name;
+```
+
+&emsp;&emsp;通过`hasOwnProperty()`方法可以确定某个属性是在实例上还是在原型对象上。
+
+```javascript
+person1.name="Luna";
+console.log(person1.hasOwnProperty("name"))//true
+delete person1.name;
+console.log(person1.hasOwnProperty("name"))//false
+```
+
+&emsp;&emsp;`in`可以判断一个对象是否有这个属性，无论这个属性是在实例上还是在原型上。
+
+```javascript
+console.log("name" in person1)//true
+```
+
+&emsp;&emsp;原型最主要的问题在于其共享特性，一般来说，不同的实例应该有属于自己的属性副本。
+
+### 2. 原型链
+
+&emsp;&emsp;原型链被定义为ECMAScript的主要继承方式。其基本思想就是通过原型继承多个引用类型的属性和方法。当访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型，于是就这样一直找下去，也就是原型链的概念。
+
+&emsp;&emsp;继承意味着复制操作，然而 JavaScript 默认并不会复制对象的属性，相反，JavaScript 只是在两个对象之间创建一个关联，这样，一个对象就可以通过委托访问另一个对象的属性和函数，所以与其叫继承，委托的说法反而更准确些。
