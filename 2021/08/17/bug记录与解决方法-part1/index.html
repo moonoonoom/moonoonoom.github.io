@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,9 +22,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: JS - Luna&#39;s Blog</title>
+  <title>bug记录与解决方法 part1 - Luna&#39;s Blog</title>
+  
+    <meta name="keywords" content="bug">
   
 
+  
+    <meta name="description" content="&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！">
   
 
   <!-- feed -->
@@ -353,7 +355,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -384,212 +386,233 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        bug记录与解决方法 part1
+      </h1>
+      <div class='new-meta-box'>
         
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg">
+    <p>Luna</p>
+  </a>
+</div>
+
           
         
           
-        
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/">bug</a>
+    </a>
+  </div>
+
+
           
         
           
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Aug 17, 2021</p>
+  </a>
+</div>
+
+          
         
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
       
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/">
-        JavaScript原型和原型链
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h3 id="1-原型"><a href="#1-原型" class="headerlink" title="1. 原型"></a>1. 原型</h3><p>&emsp;&emsp;每个函数都会创建一个prototype属性，这个属性是一个对象，包含应该由特定引用类型的实例共享的属性和方法。实际上这个对象就是通过调用构造函数创建的对象的原型。这么讲太绕了。简而言之，就是构造函数的prototype是一个对象，其他函数的prototype是一个指向其对应的构造函数的prototype对象的指针。同时，所有prototype对象都有一个constructor属性指向与之相关的构造函数。</p>
-    
+      <div id="lc-pv" data-title="bug记录与解决方法 part1" data-path="/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <p>&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！</p>
+<span id="more"></span>
+
+<h3 id="1-行内元素修改样式不生效"><a href="#1-行内元素修改样式不生效" class="headerlink" title="1. 行内元素修改样式不生效"></a>1. 行内元素修改样式不生效</h3><p>&emsp;&emsp;行内元素不能修改宽高，要改成inline-block。inline-block中的content会像block一样上下自动居中，解决方法见：行内元素对不齐的三种解决方法。默认的行高一般是根据字号。</p>
+<h3 id="2-vue3-父子元素传值时父元素值的更改没有响应到子元素"><a href="#2-vue3-父子元素传值时父元素值的更改没有响应到子元素" class="headerlink" title="2. vue3-父子元素传值时父元素值的更改没有响应到子元素"></a>2. vue3-父子元素传值时父元素值的更改没有响应到子元素</h3><p>&emsp;&emsp;这篇可以单独写一篇文章，暂且按下不表。</p>
+<h3 id="3-在表格内点击一次按钮弹窗会弹两次"><a href="#3-在表格内点击一次按钮弹窗会弹两次" class="headerlink" title="3. 在表格内点击一次按钮弹窗会弹两次"></a>3. 在表格内点击一次按钮弹窗会弹两次</h3><p>&emsp;&emsp;弹窗弹两次说明渲染了两次，这时候就要去html代码里找为什么会渲染两次。在html代码里没有显式地渲染两次，但观察发现我把弹窗的代码写进表格的代码内了。表格自然是有几行数据就渲染几次，正好这里有两份数据，所以使弹窗也渲染了两次，应该把弹窗写在外面。</p>
+<h3 id="4-Prop传值"><a href="#4-Prop传值" class="headerlink" title="4. Prop传值"></a>4. Prop传值</h3><p>&emsp;&emsp;其实我prop传值一直没搞太懂，今天遇到问题才知道，父组件里面</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:a=&quot;b&quot;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;这里的a对应的是子组件里：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">props:[<span class="string">&#x27;a&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;是这里的a啊，只要这两个对上了就可以传值了。</p>
+<h3 id="5-对弹框内元素应用父子选择器不生效"><a href="#5-对弹框内元素应用父子选择器不生效" class="headerlink" title="5. 对弹框内元素应用父子选择器不生效"></a>5. 对弹框内元素应用父子选择器不生效</h3><p>&emsp;&emsp;首先我们公司用的是less，语法上和css会有一点区别。</p>
+<p>&emsp;&emsp;这不是重点，重点是父子选择器为啥不生效呢？</p>
+<p>&emsp;&emsp;我的文件结构是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a-modal</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">:afterClose</span>=<span class="string">&quot;afterClose&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">v-model:visible</span>=<span class="string">&quot;modalVisible&quot;</span> </span></span><br><span class="line"><span class="tag">      <span class="attr">v-model:title</span>=<span class="string">&quot;modalTitle&quot;</span></span></span><br><span class="line"><span class="tag">      @<span class="attr">ok</span>=<span class="string">&quot;handleOk&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">width</span>=<span class="string">&quot;1000px&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">:footer</span>=<span class="string">&quot;null&quot;</span></span></span><br><span class="line"><span class="tag">    &gt;</span></span><br><span class="line">      &lt;a-table</span><br><span class="line">        v-model:data-source=&quot;tableData&quot;</span><br><span class="line">        :columns=&quot;columns&quot;</span><br><span class="line">        :showHeader=&quot;false&quot;</span><br><span class="line">        :pagination=&quot;false&quot;</span><br><span class="line">      &gt; </span><br><span class="line">          <span class="tag">&lt;<span class="name">template</span> #<span class="attr">version</span>=<span class="string">&quot;props&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;version&quot;</span>&gt;</span></span><br><span class="line">              v&#123;&#123; props.record.version.toFixed(1) &#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span>     </span><br><span class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;而我的less写的是：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="selector-class">.version</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>:<span class="number">#178CF7</span> ;</span><br><span class="line">    <span class="attribute">color</span>:white;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span> <span class="number">0</span> <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:<span class="number">4px</span>;</span><br><span class="line">    <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;看起来没问题，但其实对话框Modal在渲染的时候是挂在body上的，而不是挂在其父divbox上的，所以box并不是version的祖先。为什么要这么设计？因为如果把对话框挂载在box上，box又挂载在调用它的组件上，那么其实boxhui被挤到画面外。只有把对话框挂载在body上，才能比较方便地显示在画面中间。</p>
+<p>&emsp;&emsp;antd的对话框有一个”wrapClassName“属性，代表对话框外层容器的类名，把它设置为我们想要的名字，就能应用父子选择器啦。</p>
+<h3 id="5-v-if判断结果和预期结果不一致"><a href="#5-v-if判断结果和预期结果不一致" class="headerlink" title="5. v-if判断结果和预期结果不一致"></a>5. v-if判断结果和预期结果不一致</h3><p>&emsp;&emsp;v-if里面如果要判断方法需要在方法后面加上括号，不然就变成判断变量了。</p>
+<h3 id="6-Failed-to-resolve-component-Header"><a href="#6-Failed-to-resolve-component-Header" class="headerlink" title="6. Failed to resolve component: Header"></a>6. Failed to resolve component: Header</h3><p>&emsp;&emsp;Header这个组件引入之后放在components里面声明，不是setup的return！</p>
+<h3 id="7-div设置height-100-无效"><a href="#7-div设置height-100-无效" class="headerlink" title="7. div设置height:100%;无效"></a>7. div设置height:100%;无效</h3><h3 id="8-vue获取变量的变量名"><a href="#8-vue获取变量的变量名" class="headerlink" title="8. vue获取变量的变量名"></a>8. vue获取变量的变量名</h3><h3 id="9-一个组件渲染了一百多遍"><a href="#9-一个组件渲染了一百多遍" class="headerlink" title="9. 一个组件渲染了一百多遍"></a>9. 一个组件渲染了一百多遍</h3><p>&emsp;&emsp;修改ref会造成组件重新渲染，但我又把修改的方法写在组件的html里了，导致死循环。那为什么是循环一百多遍呢，是vue内部有个防止死循环的机制，循环一百遍以上就跳出了。</p>
+<h3 id="10-div一个高度固定，另一个高度自适应"><a href="#10-div一个高度固定，另一个高度自适应" class="headerlink" title="10. div一个高度固定，另一个高度自适应"></a>10. div一个高度固定，另一个高度自适应</h3><p>&emsp;&emsp;用flex布局，高度固定的那个写高度，另一个flex: 1。但是这样做之后flex：1的这个div会被子元素撑开。</p>
+<p>&emsp;&emsp;推荐用calc（100vh-?px）。</p>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/06/26/JavaScript%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/'>
-            Read More
-          </a>
-        </div>
+      
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-17T23:30:05+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Aug 17, 2021</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
+          
   
-  
-  
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/bug/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>bug</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
-    <h2 class="article-title" >
-      <a href="/2021/06/26/JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/">
-        JavaScript构造函数模式
-      </a>
-    </h2>
-  
-  <div class='md'>
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://moonoonoom.github.io/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/&title=bug记录与解决方法 part1 - Luna's Blog&summary=&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
     
-      <p>&emsp;&emsp;JavaScript中的构造函数的特点是：没有显示地创建对象、属性和方法直接赋值给了this、没有return。</p>
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://moonoonoom.github.io/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/&title=bug记录与解决方法 part1 - Luna's Blog&summary=&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://moonoonoom.github.io/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/&title=bug记录与解决方法 part1 - Luna's Blog&summary=&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
     
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+</div>
+
+
+
         
-        <time>2021-06-26</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
-        
-      </div>
       
-        <div>
-          <a class='readmore' href='/2021/06/26/JavaScript%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%A8%A1%E5%BC%8F/'>
-            Read More
-          </a>
-        </div>
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/07/23/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AUnexpected-mutation-of-prop/'>
+          <p class='title'>vue学习笔记：Unexpected mutation of prop<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>&emsp;&emsp;今天在工作的时候遇到了vue的这个bug。原来是因为Vue的Prop是单向数据流，父组件的更新会流动到子组件的prop中，但是子组件不可以自己改变prop的值。
+
+
+&e...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/05/15/typeof%E5%92%8Cinstanceof%E7%9A%84%E5%8C%BA%E5%88%AB/">
-        typeof和instanceof的区别
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>&emsp;&emsp;<code>typeof</code>用来判断一个变量是否为原始类型，即是否为6种原始值：Null, Undefined, Boolean, Number, String, Symobl 中的一种。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-05-15</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/05/15/typeof%E5%92%8Cinstanceof%E7%9A%84%E5%8C%BA%E5%88%AB/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/">
-        JavaScript值类型和传参方式浅析
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h3 id="1-值类型"><a href="#1-值类型" class="headerlink" title="1. 值类型"></a><strong>1. 值类型</strong></h3><p>&emsp;&emsp;ECMA变量有两种不同的类型：原始值和引用值。原始值可以理解成Java里的基本数据类型，其值存在栈中。有6种原始类型：Null, Undefined, Boolean, Number, String, Symobl。其中Null和Undefined这两种类型各只有一个值，分别是<code>null</code>和<code>undefined</code>。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-04-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/04/20/JavaScript%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E4%BC%A0%E5%8F%82%E6%96%B9%E5%BC%8F%E6%B5%85%E6%9E%90/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-  
+  </article>
 
 
-    
-  
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -597,311 +620,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.1/images/avatar01.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Luna</h2>
-        
-        
-          <p>正入万山圈子里，一山放过一山拦</p>
 
-        
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/569232693:@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/moonoonoom"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
-            id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(23)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/ide/" href="/categories/%E7%BC%96%E7%A8%8B/ide/"
-            id="categoriesE7BC96E7A88Bide"
-            ><div class='name'>ide</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(17)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFCSS"
-            ><div class='name'>CSS</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/JavaScript/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFJavaScript"
-            ><div class='name'>JavaScript</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
-            ><div class='name'>Vue</div><div class='badge'>(7)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFbug"
-            ><div class='name'>bug</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/"
-            id="categoriesE7BC96E7A88BE5898DE7ABAFhtml"
-            ><div class='name'>html</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAF"
-            ><div class='name'>后端</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJava"
-            ><div class='name'>Java</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/Java/SpringMVC/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFJavaSpringMVC"
-            ><div class='name'>SpringMVC</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/"
-            id="categoriesE7BC96E7A88BE5908EE7ABAFE695B0E68DAEE5BA93"
-            ><div class='name'>数据库</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box child"
-            title="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" href="/categories/%E7%BC%96%E7%A8%8B/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"
-            id="categoriesE7BC96E7A88BE8AEA1E7AE97E69CBAE7BD91E7BB9C"
-            ><div class='name'>计算机网络</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-text">1. 行内元素修改样式不生效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-vue3-%E7%88%B6%E5%AD%90%E5%85%83%E7%B4%A0%E4%BC%A0%E5%80%BC%E6%97%B6%E7%88%B6%E5%85%83%E7%B4%A0%E5%80%BC%E7%9A%84%E6%9B%B4%E6%94%B9%E6%B2%A1%E6%9C%89%E5%93%8D%E5%BA%94%E5%88%B0%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-text">2. vue3-父子元素传值时父元素值的更改没有响应到子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E8%A1%A8%E6%A0%BC%E5%86%85%E7%82%B9%E5%87%BB%E4%B8%80%E6%AC%A1%E6%8C%89%E9%92%AE%E5%BC%B9%E7%AA%97%E4%BC%9A%E5%BC%B9%E4%B8%A4%E6%AC%A1"><span class="toc-text">3. 在表格内点击一次按钮弹窗会弹两次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Prop%E4%BC%A0%E5%80%BC"><span class="toc-text">4. Prop传值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AF%B9%E5%BC%B9%E6%A1%86%E5%86%85%E5%85%83%E7%B4%A0%E5%BA%94%E7%94%A8%E7%88%B6%E5%AD%90%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%8D%E7%94%9F%E6%95%88"><span class="toc-text">5. 对弹框内元素应用父子选择器不生效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-v-if%E5%88%A4%E6%96%AD%E7%BB%93%E6%9E%9C%E5%92%8C%E9%A2%84%E6%9C%9F%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">5. v-if判断结果和预期结果不一致</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Failed-to-resolve-component-Header"><span class="toc-text">6. Failed to resolve component: Header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-div%E8%AE%BE%E7%BD%AEheight-100-%E6%97%A0%E6%95%88"><span class="toc-text">7. div设置height:100%;无效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-vue%E8%8E%B7%E5%8F%96%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D"><span class="toc-text">8. vue获取变量的变量名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E4%B8%80%E4%B8%AA%E7%BB%84%E4%BB%B6%E6%B8%B2%E6%9F%93%E4%BA%86%E4%B8%80%E7%99%BE%E5%A4%9A%E9%81%8D"><span class="toc-text">9. 一个组件渲染了一百多遍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-div%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%EF%BC%8C%E5%8F%A6%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-text">10. div一个高度固定，另一个高度自适应</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/CSS/" style="font-size: 19px; color: #777">CSS</a> <a href="/tags/JS/" style="font-size: 21.5px; color: #666">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/bug/" style="font-size: 14px; color: #999">bug</a> <a href="/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
-    </div>
-  </section>
-
-
-  
-
-  
-
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>23 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2021/03/05'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Tue Aug 17 2021 23:37:33 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-08-17 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-08-17 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -910,8 +650,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="bug记录与解决方法 part1";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

@@ -426,6 +426,50 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
+      <a href="/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/">
+        bug记录与解决方法 part1
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>&emsp;&emsp;流水账式地记录bug，再小的bug都有学习的价值！</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-08-17</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/">bug</a>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2021/08/17/bug%E8%AE%B0%E5%BD%95%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95-part1/'>
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
       <a href="/2021/07/23/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AUnexpected-mutation-of-prop/">
         vue学习笔记：Unexpected mutation of prop
       </a>
@@ -522,7 +566,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='md'>
     
       <p>&emsp;&emsp;在写代码的过程中，出现了这样的情况：</p>
-<img src="../assets/行内元素对不齐示例.png" class="lazyload" data-srcset="../assets/行内元素对不齐示例.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" width = "20%" />
+<img src="../assets/rowElementsNotAligned.png" class="lazyload" data-srcset="../assets/rowElementsNotAligned.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" width = "20%" />
 
 <p>&emsp;&emsp;很明显这几个元素处于同一行，但为什么它们高度不一样呢？那是因为我为了设置最前面文件名的宽度，把它的display改成了inline-block（这里再次强调，行内元素不能设置宽高！老是忘掉）。inline-block的元素和块级元素一样，会默认上下居中。</p>
 <p>&emsp;&emsp;出现这种问题，不用怕！简单的CSS问题，下面来讲讲我在公司刚学的三种解决方法。（顺便说一句，用F12调试既能改css有能改html，请大家遇到样式问题的时候多使用F12！）</p>
@@ -817,50 +861,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/">
-        html文档浅析
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h3 id="1-文档流"><a href="#1-文档流" class="headerlink" title="1. 文档流"></a>1. 文档流</h3><p>&emsp;&emsp;文档流指的是html的元素在计算布局排版的过程中，会依照它们各自在标记中出现的先后顺序，依次从页面上方流向下方。其中非块级元素会从左到右排列，块级元素会从上到下排列。</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2021-06-17</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/">html</a>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2021/06/17/html%E6%96%87%E6%A1%A3%E6%B5%85%E6%9E%90/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -979,7 +979,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E7%BC%96%E7%A8%8B/" href="/categories/%E7%BC%96%E7%A8%8B/"
             id="categoriesE7BC96E7A88B"
-            ><div class='name'>编程</div><div class='badge'>(22)</div></a></li>
+            ><div class='name'>编程</div><div class='badge'>(23)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/ide/" href="/categories/%E7%BC%96%E7%A8%8B/ide/"
@@ -989,7 +989,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"
             id="categoriesE7BC96E7A88BE5898DE7ABAF"
-            ><div class='name'>前端</div><div class='badge'>(16)</div></a></li>
+            ><div class='name'>前端</div><div class='badge'>(17)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"
@@ -1005,6 +1005,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/Vue/"
             id="categoriesE7BC96E7A88BE5898DE7ABAFVue"
             ><div class='name'>Vue</div><div class='badge'>(7)</div></a></li>
+        
+          <li><a class="flat-box child"
+            title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/bug/"
+            id="categoriesE7BC96E7A88BE5898DE7ABAFbug"
+            ><div class='name'>bug</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box child"
             title="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/html/"
@@ -1058,7 +1063,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/CSS/" style="font-size: 19px; color: #777">CSS</a> <a href="/tags/JS/" style="font-size: 21.5px; color: #666">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
+      <a href="/tags/CDN/" style="font-size: 14px; color: #999">CDN</a> <a href="/tags/CSS/" style="font-size: 19px; color: #777">CSS</a> <a href="/tags/JS/" style="font-size: 21.5px; color: #666">JS</a> <a href="/tags/SpringMVC/" style="font-size: 14px; color: #999">SpringMVC</a> <a href="/tags/Vue/" style="font-size: 24px; color: #555">Vue</a> <a href="/tags/bug/" style="font-size: 14px; color: #999">bug</a> <a href="/tags/git/" style="font-size: 16.5px; color: #888">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/ide/" style="font-size: 14px; color: #999">ide</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 14px; color: #999">数据库</a> <a href="/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" style="font-size: 14px; color: #999">碎碎念</a>
     </div>
   </section>
 
@@ -1085,7 +1090,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>22 篇</div>
+          <div>23 篇</div>
         </div>
       
 
@@ -1128,8 +1133,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri Jul 23 2021 21:44:43 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2021-07-23 日</div>
+            <div id="last-update" style="display: none;">Tue Aug 17 2021 23:37:33 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2021-08-17 日</div>
           
         </div>
         
@@ -1179,7 +1184,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2021-07-23 日';
+            document.getElementById('last-update-show').innerHTML = '2021-08-17 日';
           }
         </script>
         
