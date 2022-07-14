@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Tag: 数据库 - Luna&#39;s Blog</title>
+  <title>Archive: 2022/7 - Luna&#39;s Blog</title>
   
 
   
@@ -104,7 +104,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header  shadow blur show"  >
+<header id="l_header" class="l_header  shadow blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -353,7 +353,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="half" class='cover-wrapper  dock' style="display: ;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/moonoonoom/CDN@0.3/Blog/images/background04.jpg"></div>
           
@@ -384,11 +384,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
@@ -408,29 +406,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/">
-        mysql8修改密码后无法用navicat连接
+      <a href="/2022/07/14/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
+        博客使用教程
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>&emsp;&emsp;今天尝试在自己的电脑上用Java连接数据库，但无奈以前设置的root的密码忘记了。尝试去找也没找到（找到了也是加密的我也看不懂）。用navicat可以看一下是几位数，或许可以用来猜一下，不过等我发现的时候已经是我把root密码改了，正要连接navicat的时候。结果连不上，哎，连不上，就是玩。我去搜了一下原来是我的加密格式和navicat需要的不一样。现在我就还原一下我修改的过程。</p>
+      <p>&emsp;&emsp;自己搞了个博客自己还要写使用教程感觉有点奇怪。但是我有的时候博客写着写着突然有事就不写了，然后再写又是几个月之后，像这次都是快一年之后了，中间又是重装系统又是换电脑的，搞一堆东西，再想写博客就又忘了怎么操作了。索性写个教程一劳永逸吧。</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2021-06-02</time>
+        <time>2022-07-14</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/">后端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+          <a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/">编程</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/">前端</a><span class="sep"></span><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/%E5%8D%9A%E5%AE%A2/">博客</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2021/06/02/mysql8%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%E5%90%8E%E6%97%A0%E6%B3%95%E7%94%A8navicat%E8%BF%9E%E6%8E%A5/'>
+          <a class='readmore' href='/2022/07/14/%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/'>
             Read More
           </a>
         </div>
@@ -450,8 +448,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
@@ -784,14 +781,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.add("show");
+  l_header.classList.remove("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="none";
-    cover_wrapper.style.display="none";
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
     
   
 </script>
